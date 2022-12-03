@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Simplicity Studio Trash
+firmware/outgoing/
+firmware/.browser/
+firmware/.metadata/
+
+
+# Project Trash
+firmware/ftd/GNU ARM v10.3.1 - Default/

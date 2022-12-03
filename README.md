@@ -1,1 +1,1 @@
-# ot-diagnostic-tool
+# Diagnostic Tool Application using OpenThread
