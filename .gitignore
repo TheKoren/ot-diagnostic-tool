@@ -55,7 +55,3 @@ dkms.conf
 firmware/outgoing/
 firmware/.browser/
 firmware/.metadata/
-
-
-# Project Trash
-firmware/ftd/GNU ARM v10.3.1 - Default/
