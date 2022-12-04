@@ -25,7 +25,7 @@
 #include "sl_sensor_rht.h"
 #endif // SL_CATALOG_SENSOR_RHT_PRESENT
 
-#define ADDR "fddc:d954:d69:2:0:0::c0a8:6417"
+#define ADDR "fd35:ffd1:8158:2:0:0::c0a8:8901"
 #define PORT 12345
 
 /***********************************************************
@@ -104,36 +104,31 @@ void applicationTick(void)
       static char str1[30];
       static char str2[30];
 
-      if (ButtonPressed)
-          {
-              ButtonPressed = false;
+      sl_service_rht_get(&humidity, &temperature);
+      sprintf(str1,"Humidity = %lu %%RH\r\n", humidity);
+      sprintf(str2,"Temperature = %ld C\r\n", temperature);
 
-              sl_service_rht_get(&humidity, &temperature);
-              sprintf(str1,"Humidity = %lu %%RH\r\n", humidity);
-              sprintf(str2,"Temperature = %ld C\r\n", temperature);
+      strcat(str1, str2);
+      const char * payload = str1;
 
-              strcat(str1, str2);
-              const char * payload = str1;
+      // Get a message buffer
+      VerifyOrExit((message = otUdpNewMessage(otGetInstance(), NULL)) != NULL);
 
-              // Get a message buffer
-              VerifyOrExit((message = otUdpNewMessage(otGetInstance(), NULL)) != NULL);
+      // Setup messageInfo
+      memset(&messageInfo, 0, sizeof(messageInfo));
+      SuccessOrExit(otIp6AddressFromString(ADDR, &messageInfo.mPeerAddr));
+      messageInfo.mPeerPort = PORT;
 
-              // Setup messageInfo
-              memset(&messageInfo, 0, sizeof(messageInfo));
-              SuccessOrExit(otIp6AddressFromString(ADDR, &messageInfo.mPeerAddr));
-              messageInfo.mPeerPort = PORT;
+      // Append the MESSAGE payload to the message buffer
+      SuccessOrExit(otMessageAppend(message, payload, (uint16_t)strlen(payload)));
 
-              // Append the MESSAGE payload to the message buffer
-              SuccessOrExit(otMessageAppend(message, payload, (uint16_t)strlen(payload)));
+      // Send the button press message
+      SuccessOrExit(otUdpSend(otGetInstance(), &Socket, message, &messageInfo));
 
-              // Send the button press message
-              SuccessOrExit(otUdpSend(otGetInstance(), &Socket, message, &messageInfo));
-
-              // Set message pointer to NULL so it doesn't get free'd by this function.
-              // otUdpSend() executing successfully means OpenThread has taken ownership
-              // of the message buffer.
-              message = NULL;
-          }
+      // Set message pointer to NULL so it doesn't get free'd by this function.
+      // otUdpSend() executing successfully means OpenThread has taken ownership
+      // of the message buffer.
+      message = NULL;
       exit:
           if (message != NULL)
           {
