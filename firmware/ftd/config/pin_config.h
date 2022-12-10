@@ -39,6 +39,16 @@
 // [I2C0]$
 
 // $[I2C1]
+// I2C1 SCL on PC5
+#define I2C1_SCL_PORT                            gpioPortC
+#define I2C1_SCL_PIN                             5
+#define I2C1_SCL_LOC                             17
+
+// I2C1 SDA on PC4
+#define I2C1_SDA_PORT                            gpioPortC
+#define I2C1_SDA_PIN                             4
+#define I2C1_SDA_LOC                             17
+
 // [I2C1]$
 
 // $[IDAC0]
@@ -134,6 +144,21 @@
 // [USART0]$
 
 // $[USART1]
+// USART1 CLK on PC8
+#define USART1_CLK_PORT                          gpioPortC
+#define USART1_CLK_PIN                           8
+#define USART1_CLK_LOC                           11
+
+// USART1 CS on PC9
+#define USART1_CS_PORT                           gpioPortC
+#define USART1_CS_PIN                            9
+#define USART1_CS_LOC                            11
+
+// USART1 RX on PC7
+#define USART1_RX_PORT                           gpioPortC
+#define USART1_RX_PIN                            7
+#define USART1_RX_LOC                            11
+
 // [USART1]$
 
 // $[USART2]
