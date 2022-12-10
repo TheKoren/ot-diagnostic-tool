@@ -15,6 +15,6 @@ while True:
     data = data.decode('utf8', 'strict').split(',');
     data.insert(0, datetime.now().timestamp())
     print(data)
-    with open('data.csv', 'a', newline='', encoding='utf-8') as fp:
+    with open('scripts/data.csv', 'a', newline='', encoding='utf-8') as fp:
         writer = csv.writer(fp)
         writer.writerow(data)

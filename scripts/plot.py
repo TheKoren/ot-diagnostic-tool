@@ -4,7 +4,7 @@ import datetime as dt
 import csv
 
 def readFile():
-    with open('data.csv', 'r') as fp:
+    with open('scripts/data.csv', 'r') as fp:
         reader = csv.reader(fp, delimiter=',')
         timeStamps = list()
         temperatures = list()
@@ -31,5 +31,4 @@ values=[float(data) / 1000 for data in y]
 plt.plot(datenums, values)
 plt.gcf().autofmt_xdate()
 plt.margins(0, tight=True)
-#plt.show()
-plt.savefig("data.png")
+plt.savefig('server/static/{}'.format("data.png"))
