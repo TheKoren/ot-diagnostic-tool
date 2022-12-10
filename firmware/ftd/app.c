@@ -29,8 +29,6 @@
 #include "openthread-system.h"
 #include "app.h"
 
-#include "reset_util.h"
-
 #include "sl_component_catalog.h"
 #ifdef SL_CATALOG_POWER_MANAGER_PRESENT
 #include "sl_power_manager.h"

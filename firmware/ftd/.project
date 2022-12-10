@@ -282,6 +282,36 @@
 			<locationURI>STUDIO_SDK_LOC/protocol/openthread/libs/libsl_openthread_efr32mg1x_gcc.a</locationURI>
 		</link>
 		<link>
+			<name>gecko_sdk_4.1.3/app/bluetooth/common/sensor_gas/sl_sensor_gas.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_gas/sl_sensor_gas.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/app/bluetooth/common/sensor_gas/sl_sensor_gas.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_gas/sl_sensor_gas.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/app/bluetooth/common/sensor_light/sl_sensor_light.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_light/sl_sensor_light.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/app/bluetooth/common/sensor_light/sl_sensor_light.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_light/sl_sensor_light.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/app/bluetooth/common/sensor_pressure/sl_sensor_pressure.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_pressure/sl_sensor_pressure.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/app/bluetooth/common/sensor_pressure/sl_sensor_pressure.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_pressure/sl_sensor_pressure.h</locationURI>
+		</link>
+		<link>
 			<name>gecko_sdk_4.1.3/app/bluetooth/common/sensor_rht/sl_sensor_rht.c</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_rht/sl_sensor_rht.c</locationURI>
@@ -302,6 +332,16 @@
 			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_select/sl_sensor_select.h</locationURI>
 		</link>
 		<link>
+			<name>gecko_sdk_4.1.3/app/bluetooth/common/sensor_sound/sl_sensor_sound.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_sound/sl_sensor_sound.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/app/bluetooth/common/sensor_sound/sl_sensor_sound.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/app/bluetooth/common/sensor_sound/sl_sensor_sound.h</locationURI>
+		</link>
+		<link>
 			<name>gecko_sdk_4.1.3/app/common/util/app_assert/app_assert.h</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/app/common/util/app_assert/app_assert.h</locationURI>
@@ -310,6 +350,61 @@
 			<name>gecko_sdk_4.1.3/app/common/util/app_assert/sl_app_assert.h</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/app/common/util/app_assert/sl_app_assert.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/bmp280/inc/sl_bmp280.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/bmp280/inc/sl_bmp280.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/bmp280/src/sl_bmp280.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/bmp280/src/sl_bmp280.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/ccs811/firmware/sl_ccs811_fw_app_1v0p0.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/ccs811/firmware/sl_ccs811_fw_app_1v0p0.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/ccs811/inc/sl_ccs811.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/ccs811/inc/sl_ccs811.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/ccs811/src/sl_ccs811.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/ccs811/src/sl_ccs811.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/mic/inc/sl_mic.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/mic/inc/sl_mic.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/mic/src/sl_mic_i2s.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/mic/src/sl_mic_i2s.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/pressure/inc/sl_pressure.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/pressure/inc/sl_pressure.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/pressure/src/sl_pressure_bmp280.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/pressure/src/sl_pressure_bmp280.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/si1133/inc/sl_si1133.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/si1133/inc/sl_si1133.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/si1133/src/sl_si1133.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/si1133/src/sl_si1133.c</locationURI>
 		</link>
 		<link>
 			<name>gecko_sdk_4.1.3/hardware/driver/si70xx/inc/sl_si70xx.h</name>
@@ -765,6 +860,16 @@
 			<name>gecko_sdk_4.1.3/util/silicon_labs/silabs_core/memory_manager/sl_malloc.h</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/util/silicon_labs/silabs_core/memory_manager/sl_malloc.h</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/bmp280/bosch/BMP280_driver/bmp280.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/bmp280/bosch/BMP280_driver/bmp280.c</locationURI>
+		</link>
+		<link>
+			<name>gecko_sdk_4.1.3/hardware/driver/bmp280/bosch/BMP280_driver/bmp280.h</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/driver/bmp280/bosch/BMP280_driver/bmp280.h</locationURI>
 		</link>
 		<link>
 			<name>gecko_sdk_4.1.3/hardware/driver/mx25_flash_shutdown/inc/sl_mx25_flash_shutdown_usart/sl_mx25_flash_shutdown.h</name>
