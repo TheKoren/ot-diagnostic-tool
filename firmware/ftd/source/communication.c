@@ -108,7 +108,7 @@ void applicationTick(void)
 
       const char * payload = values[0];
 
-      otCliOutputFormat(payload);
+      otCliOutputFormat("%d", rloc16);
       // Get a message buffer
       VerifyOrExit((message = otUdpNewMessage(otGetInstance(), NULL)) != NULL);
 

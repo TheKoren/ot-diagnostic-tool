@@ -53,7 +53,6 @@
 #define SL_I2CSPM_SENSOR_SDA_PORT                gpioPortC
 #define SL_I2CSPM_SENSOR_SDA_PIN                 4
 #define SL_I2CSPM_SENSOR_SDA_LOC                 17
-
 // [I2C_SL_I2CSPM_SENSOR]$
 // <<< sl:end pin_tool >>>
 

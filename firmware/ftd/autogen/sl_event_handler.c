@@ -20,6 +20,7 @@
 #include "sl_mpu.h"
 #include "nvm3_default.h"
 #include "sl_ot_init.h"
+#include "sl_sensor_sound.h"
 #include "sl_simple_button_instances.h"
 #include "sl_uartdrv_instances.h"
 #include "psa/crypto.h"
@@ -82,5 +83,6 @@ void sl_stack_process_action(void)
 
 void sl_internal_app_process_action(void)
 {
+  sl_sensor_sound_step();
 }
 

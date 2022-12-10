@@ -23,7 +23,6 @@ include:
 - path: ''
   file_list:
   - {path: app.h}
-  - {path: reset_util.h}
 sdk: {id: gecko_sdk, version: 4.1.3}
 toolchain_settings: []
 component:
@@ -32,11 +31,15 @@ component:
 - {id: brd4166a}
 - {id: EFR32MG12P332F1024GL125}
 - {id: ot_reference_device}
+- {id: sensor_sound}
 - {id: rail_util_pti}
+- {id: sensor_pressure}
 - {id: ot_cli_source}
 - instance: [vcom]
   id: uartdrv_usart
 - {id: ot_stack_ftd}
+- {id: sensor_gas}
+- {id: sensor_light}
 - {id: sensor_rht}
 configuration:
 - {name: SL_BOARD_ENABLE_VCOM, value: '1'}
