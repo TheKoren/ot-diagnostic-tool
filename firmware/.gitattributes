@@ -1,7 +1,7 @@
-STK3700_project/autogen/** linguist-vendored=true
-STK3700_project/config/** linguist-vendored=true
-STK3700_project/.cproject linguist-vendored=true
-STK3700_project/.project linguist-vendored=true
-STK3700_project/ftd.pintool linguist-vendored=true
-STK3700_project/ftd.slcp linguist-vendored=true
-STK3700_project/ftd.slps linguist-vendored=true
+ftd/autogen/** linguist-vendored=true
+ftd/config/** linguist-vendored=true
+ftd/.cproject linguist-vendored=true
+ftd/.project linguist-vendored=true
+ftd/ftd.pintool linguist-vendored=true
+ftd/ftd.slcp linguist-vendored=true
+ftd/ftd.slps linguist-vendored=true
