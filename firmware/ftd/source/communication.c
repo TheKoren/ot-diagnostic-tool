@@ -19,13 +19,17 @@
  ***********************************************************/
 #include "sl_button.h"
 #include "sl_simple_button.h"
-#include "sl_component_catalog.h"
 
-#ifdef SL_CATALOG_SENSOR_RHT_PRESENT
-#include "sl_sensor_rht.h"
-#endif // SL_CATALOG_SENSOR_RHT_PRESENT
+/***********************************************************
+ * Custom Includes
+ ***********************************************************/
+#include "sensors.h"
 
-#define ADDR "fd35:ffd1:8158:2:0:0::c0a8:8901"
+/***********************************************************
+ * Macros
+ ***********************************************************/
+
+#define ADDR "fd69:29a9:2e20:2:0:0::c0a8:8901"
 #define PORT 12345
 
 /***********************************************************
@@ -40,28 +44,21 @@ extern void otSysEventSignalPending(void);
  ***********************************************************/
 static bool         ButtonPressed = false;
 static otUdpSocket  Socket;
+static uint16_t     rloc16;
 
 
 /***********************************************************
- * Functions
+ * Function
  ***********************************************************/
 void programInit(void)
 {
   otCliOutputFormat("Program started.\r\n");
-  sl_status_t sc;
-#ifdef SL_CATALOG_SENSOR_RHT_PRESENT
-  sc = sl_sensor_rht_init();
-  if (sc != SL_STATUS_OK) {
-      otCliOutputFormat("Relative Humidity and Temperature sensor initialization failed.\r\n");
-  }
-#endif // SL_CATALOG_SENSOR_RHT_PRESENT
+  sensorInit();
 }
 
 void programDeInit(void)
 {
-#ifdef SL_CATALOG_SENSOR_RHT_PRESENT
-  sl_sensor_rht_deinit();
-#endif // SL_CATALOG_SENSOR_RHT_PRESENT
+  sensorDeInit();
 }
 
 
@@ -74,43 +71,44 @@ void sl_button_on_change(const sl_button_t *handle)
     }
 }
 
-#ifdef SL_CATALOG_KERNEL_PRESENT
-#define applicationTick sl_ot_rtos_application_tick
-#endif
-
-sl_status_t sl_service_rht_get(uint32_t *rh, int32_t *t)
-{
-  sl_status_t sc;
-  sc = sl_sensor_rht_get(rh, t);
-  if (SL_STATUS_OK == sc) {
-  } else if (SL_STATUS_NOT_INITIALIZED == sc) {
-      otCliOutputFormat("Relative Humidity and Temperature sensor is not initialized.\r\n");
-  } else {
-      otCliOutputFormat("RHT sensor measurement failed.\r\n");
-  }
-  return sc;
-}
-
-#ifdef SL_CATALOG_KERNEL_PRESENT
-#define applicationTick sl_ot_rtos_application_tick
-#endif
-
 void applicationTick(void)
 {
       otMessageInfo    messageInfo;
       otMessage *      message = NULL;
+
       uint32_t humidity;
       int32_t temperature;
-      static char str1[30];
-      static char str2[30];
-
+      float lux;
+      float uvi;
+      float pressure;
+      uint16_t eco2;
+      uint16_t tvoc;
+      float sound_level;
+      char values[9][50];
       sl_service_rht_get(&humidity, &temperature);
-      sprintf(str1,"Humidity = %lu %%RH\r\n", humidity);
-      sprintf(str2,"Temperature = %ld C\r\n", temperature);
+      sl_service_light_get(&lux, &uvi);
+      sl_service_pressure_get(&pressure);
+      sl_service_gas_get(&eco2, &tvoc);
+      sl_service_sound_get(&sound_level);
 
-      strcat(str1, str2);
-      const char * payload = str1;
+      sprintf(values[0], "%d,", rloc16);
+      sprintf(values[1], "%lu,", humidity);
+      sprintf(values[2], "%ld,", temperature);
+      sprintf(values[3], "%lu,", (uint32_t)(lux * 100));
+      sprintf(values[4], "%d,", (uint8_t)uvi);
+      sprintf(values[5], "%lu,", (uint32_t)(pressure * 1000.0f));
+      sprintf(values[6], "%d,", eco2);
+      sprintf(values[7], "%d,", tvoc);
+      sprintf(values[8], "%d\n", (int16_t)(sound_level * 100.0f));
 
+      for(int i = 1; i <= 8; i++)
+        {
+           strcat(values[0], values[i]);
+        }
+
+      const char * payload = values[0];
+
+      otCliOutputFormat(payload);
       // Get a message buffer
       VerifyOrExit((message = otUdpNewMessage(otGetInstance(), NULL)) != NULL);
 
@@ -229,4 +227,6 @@ void setNetworkConfiguration(void)
         otCliOutputFormat("otDatasetSetActive failed with: %d, %s\r\n", error, otThreadErrorToString(error));
         return;
     }
+    rloc16 = otThreadGetRloc16(otGetInstance());
+
 }
