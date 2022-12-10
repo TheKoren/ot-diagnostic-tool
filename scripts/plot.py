@@ -4,7 +4,7 @@ import datetime as dt
 import csv
 
 def readFile():
-    with open('scripts/data.csv', 'r') as fp:
+    with open('data.csv', 'r') as fp:
         reader = csv.reader(fp, delimiter=',')
         timeStamps = list()
         temperatures = list()
@@ -21,14 +21,15 @@ def readFile():
 (x, rloc, y) = readFile()
 dates =[dt.datetime.fromtimestamp(float(ts)) for ts in x]
 datenums = md.date2num(dates)
+rloc16 = hex(int(rloc))
 plt.xlabel('Time')
 plt.ylabel('Temperature')
-plt.title('Thunderboard Sense 2: '+ hex(int(rloc)) +'')
+plt.title('Thunderboard Sense 2: '+ rloc16 +'')
 ax=plt.gca()
 xfmt = md.DateFormatter('%Y-%m-%d %H:%M:%S')
 ax.xaxis.set_major_formatter(xfmt)
 values=[float(data) / 1000 for data in y]
 plt.plot(datenums, values)
 plt.gcf().autofmt_xdate()
-plt.margins(0, tight=True)
-plt.savefig('server/static/{}'.format("data.png"))
+plt.margins(0.015, tight=True)
+plt.savefig('../server/static/{}'.format(f"{rloc16}.png"))
