@@ -99,7 +99,7 @@ void applicationTick(void)
       sprintf(values[5], "%lu,", (uint32_t)(pressure * 1000.0f));
       sprintf(values[6], "%d,", eco2);
       sprintf(values[7], "%d,", tvoc);
-      sprintf(values[8], "%d\n", (int16_t)(sound_level * 100.0f));
+      sprintf(values[8], "%d", (int16_t)(sound_level * 100.0f));
 
       for(int i = 1; i <= 8; i++)
         {
